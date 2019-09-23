@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>VueJS Apple Calculator</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript" src="ui.js"></script>
+  
+</head>
+
+<body>
+  <div id="divp" style="display: none;">
+    <div id="calculator">
+    <div id="calculator-display">{{ displayValueFormatted }}</div>
+
+    <div id="calculator-keypad">
+      <div class="input-keys">
+        <div class="function-keys">
+          <button v-if="!canClear" class="key-clear" @click="clearAll">AC</button>
+          <button v-else class="key-clear" @click="clear">C</button>
+          <button class="key-sign" @click="changeSign">+/<sub>−</sub></button>
+          <button class="key-percent" @click="calculatePercent">%</button>
+        </div>
+
+        <div class="digit-keys">
+          <button class="key-0" @click="inputDigit('0')">0</button>
+          <button @click="inputDigit('.')" class="key-dot">•</button>
+          <button @click="inputDigit('1')">1</button>
+          <button @click="inputDigit('2')">2</button>
+          <button @click="inputDigit('3')">3</button>
+          <button @click="inputDigit('4')">4</button>
+          <button @click="inputDigit('5')">5</button>
+          <button @click="inputDigit('6')">6</button>
+          <button @click="inputDigit('7')">7</button>
+          <button @click="inputDigit('8')">8</button>
+          <button @click="inputDigit('9')">9</button>
+        </div>
+      </div>
+
+      <div class="operator-keys">
+        <button :class="{active: this.currentOperator === '/'}" @click="inputOperator('/')">
+                  <span>÷</span>
+              </button>
+        <button :class="{active: this.currentOperator === '*'}" @click="inputOperator('*')">
+          <span>×</span>
+              </button>
+        <button :class="{active: this.currentOperator === '-'}" @click="inputOperator('-')">
+                  <span>−</span>
+              </button>
+        <button :class="{active: this.currentOperator === '+'}" @click="inputOperator('+')">
+                  <span>+</span>
+              </button>
+        <button class="key-equal" @click="inputOperator('=')"><span>=</span></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
